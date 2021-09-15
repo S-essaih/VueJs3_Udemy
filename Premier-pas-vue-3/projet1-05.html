@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projet1-05(propriété calculées)</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+    <div id="app">
+      <P>Heure FR  : {{dateFr}}</P>
+      <P>Heure US  : {{dateUs}}</P>
+
+      <P>Heure FR  : {{dateFr2}}</P>
+      <P>Heure US  : {{dateUs2}}</P>
+
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                   date:new Date(),
+                   dateFr2: new Date().toLocaleTimeString(),
+                   dateUs2: new Date().toLocaleTimeString('en-US'),
+                }
+            },
+            computed:{
+                dateFr(){
+                    return this.date.toLocaleTimeString()
+                },
+
+                dateUs(){
+                    return this.date.toLocaleTimeString('en-US')
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+
+</body>
+</html>
